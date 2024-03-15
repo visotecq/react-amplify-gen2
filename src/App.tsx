@@ -1,6 +1,7 @@
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import TodoList from "./components/TodoList";
+import TodoList from './components/TodoList';
+
 function App() {
   return (
     <>
