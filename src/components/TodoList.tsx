@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../../amplify/data/resource";
+import { signOut } from 'aws-amplify/auth';
 
 export default function TodoList() {
   // generate your data client using the Schema from your backend
@@ -41,6 +42,14 @@ export default function TodoList() {
           <li key={todo.id}>{todo.content}</li>
         ))}
       </ul>
+
+      <button onClick={async function handleSignOut() {
+        try {
+            await signOut();
+        } catch (error) {
+            console.log('error signing out: ', error);
+        }
+        }}>SingOut</button>
     </div>
   );
 }
